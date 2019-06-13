@@ -7,7 +7,7 @@ import { convertToDeviceResolution } from '../utils/resolution';
 const styles = StyleSheet.create({
 flatListView : {
     borderWidth:1, 
-    width : '50%',
+    width : '48%',
     justifyContent:'center',
     alignItems:'center',
     height:convertToDeviceResolution(30)

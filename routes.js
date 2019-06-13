@@ -14,6 +14,7 @@ import { BackHandler } from 'react-native';
 import Login from '../app/screens/login';
 import Home from '../app/screens/home';
 import Detail from '../app/screens/details';
+import List from '../app/screens/listView';
 
 import { GSideMenu } from './commonComponents';
 // import { convertToDeviceResolution } from './utils/resolution'
@@ -71,6 +72,13 @@ export default class Routes extends Component {
                         component={Detail}
                         backTitle={'Home'}
                         />
+
+                        <Scene
+                        key='List'
+                        title="Flat List"
+                        component={List}
+                        />
+                        
                     </Stack>
             </Router>
         );

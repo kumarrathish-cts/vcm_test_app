@@ -14,6 +14,12 @@ export const styles =  StyleSheet.create({
     homeText:{
         fontSize:convertToDeviceResolution(10)
     },
+    labeltext:{
+        fontSize:20,
+        marginBottom:'2%',
+        height:30,
+        color:'green'
+    },
     button:{
         fontSize:convertToDeviceResolution(5)
     },
@@ -43,7 +49,7 @@ export const styles =  StyleSheet.create({
     },
     floatInput: {
       width: "90%",
-      marginTop : "5%"
+      // marginTop : "5%"
       //marginBottom : "5%"
     },
     initialfloatingBorder: {
