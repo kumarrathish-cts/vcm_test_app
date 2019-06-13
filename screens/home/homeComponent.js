@@ -87,7 +87,7 @@ class HomeComponent extends Component {
 
     render(){
         return (
-            <View style={{flex:1,flexDirection:'column'}}>
+            <ScrollView style={{flex:1,flexDirection:'column'}}>
                 <HomeComponentWithSpinner style={styles.containerStyle}>
                 <Text style={styles.homeText}>{strings("home.welcomeText")}</Text>
                 <GButtonComponent 
@@ -110,42 +110,31 @@ class HomeComponent extends Component {
                 buttonText= {strings("common.exception")}
                 onPress={()=>this.throwException()}
                 />
-                <GInputComponent
-                //textInputStyle={}
-                secureTextEntry={false}
-                inputText={""}
-                placeholder={"Rathish"}
-                placehlderTextColor={"gray"}
-                autoFocus={true}
-                editable={true}
-                maxLength={100}
-                // value={"Need to clear"}
-                />
-
-                <GInputComponent
-                secureTextEntry={true}
-                inputText={""}
-                placeholder={"Password"}
-                placehlderTextColor={"gray"}
-                autoFocus={true}
-                editable={true}
-                maxLength={10}
-                />
-                {/*<View style={{flex:1,flexDirection:'row',height:100}}>
-                    <View style={{flex:0.2}}>
-                        <GCounterComponent 
-                        counterValue={this.state.diffCounter} 
-                        onAddPress={()=>this.setState({diffCounter:this.state.diffCounter+1})}
-                        onMinusPress={()=>this.setState({diffCounter:this.state.diffCounter-1})}
-                        />
-                    </View> 
-                    <View style={{flex:0.5,alignItems:'center',justifyContent:'center',height:100}}>
-                    <Text>
-                         {this.state.diffCounter}
-                     </Text>
-                    </View>
+                <View style={{marginTop:'5%'}}>
+                    <GInputComponent
+                    //textInputStyle={}
+                    secureTextEntry={false}
+                    inputText={""}
+                    placeholder={"Username"}
+                    placehlderTextColor={"gray"}
+                    autoFocus={true}
+                    editable={true}
+                    maxLength={100}
+                    // value={"Need to clear"}
+                    />
                 </View>
-                */}
+
+            <View style={{marginTop:'5%'}}>
+                <GInputComponent
+                    secureTextEntry={true}
+                    inputText={""}
+                    placeholder={"Password"}
+                    placehlderTextColor={"gray"}
+                    autoFocus={true}
+                    editable={true}
+                    maxLength={10}
+                    />
+            </View>
 
                 <GFloatingInputComponent
                 inputBorder={styles.initialfloatingBorder}
@@ -168,38 +157,38 @@ class HomeComponent extends Component {
                     questions = {item.question}/>
                 )}
 
-                {<GCardTileComponent title={"Account Number"} details={"0000001004067032"} tileStyles={{color:"red"}}/>
+                <GCardTileComponent title={"Account Number"} details={"0000001004067032"} tileStyles={{color:"red"}}/>
                 <GCardTileComponent title={"Branch"} details={"Beasant Nagar"}/>
-                <GCardTileComponent title={"Name"} details={"Rathishkuamr"} tileStyles={{color:"#33A8FF"}}/>
-                <GCardTileComponent title={"Available Balance"} details={"246.31"}/>}
-                {/*this.state.usersChoice.map((item,index) =>
+                <GCardTileComponent title={"Name"} details={"MS Washington"} tileStyles={{color:"#33A8FF"}}/>
+                <GCardTileComponent title={"Available Balance"} details={"246.31"}/>
+                {this.state.usersChoice.map((item,index) =>
                     <GCheckBoxComponent 
                     onPress={()=>this.checkBoxClicked(index,item.checked)}
                     selected = {item.checked}
                     options = {item.options}/>
-                )*/} 
+                )} 
                 {/* <Button title={strings("common.back")} onPress={()=>Actions.pop()} />  */}
 
-                {/*<FlatList 
-                data={[{id:1,type:'Tree1',names:'MangoNeem'},{id:2,type:'plant1',names:'tomato'},
-                {id:1,type:'Tree2',names:'MangoNeem'},{id:2,type:'plant2',names:'tomato'},
-                {id:1,type:'Tree3',names:'MangoNeem'},{id:2,type:'plant3',names:'tomato'},
-                {id:1,type:'Tree4',names:'MangoNeem'},{id:2,type:'plant4',names:'tomato'},
-                {id:1,type:'Tree5',names:'MangoNeem'},{id:2,type:'plant5',names:'tomato'},
-                {id:1,type:'Tree6',names:'MangoNeem'},{id:2,type:'plant6',names:'tomato'},
-                {id:1,type:'Tree7',names:'MangoNeem'},{id:2,type:'plant7',names:'tomato'},
-                {id:1,type:'Tree8',names:'MangoNeem'},{id:2,type:'plant8',names:'tomato'},
-                {id:1,type:'Tree9',names:'MangoNeem'},{id:2,type:'plant9',names:'tomato'},
-                {id:1,type:'Tree10',names:'MangoNeem'},{id:2,type:'plant11',names:'tomato'},
-                {id:1,type:'Tree11',names:'MangoNeem'},{id:2,type:'plant12',names:'tomato'},
-                {id:1,type:'Tree12',names:'MangoNeem'},{id:2,type:'plant14',names:'tomato'},
-                {id:1,type:'Tree13',names:'MangoNeem'},{id:2,type:'plant15',names:'tomato'},
-                {id:1,type:'Tree14',names:'MangoNeem'},{id:2,type:'plant16',names:'tomato'},
-                {id:1,type:'Tree15',names:'MangoNeem'},{id:2,type:'plant17',names:'tomato'},
-                {id:1,type:'Tree16',names:'MangoNeem'},{id:2,type:'plant18',names:'tomato'},
-                {id:1,type:'Tree17',names:'MangoNeem'},{id:2,type:'plant19',names:'tomato'},
-                {id:1,type:'Tree18',names:'MangoNeem'},{id:2,type:'plant21',names:'tomato'},
-                {id:1,type:'Tree19',names:'MangoNeem'},{id:2,type:'plant22',names:'tomato'},]}
+                <FlatList 
+                data={[{id:1,type:'Tree1',names:'Plant A Tree'},{id:2,type:'plant1',names:'Much needed'},
+                {id:1,type:'Tree2',names:'Plant A Tree'},{id:2,type:'plant2',names:'Much needed'},
+                {id:1,type:'Tree3',names:'Plant A Tree'},{id:2,type:'plant3',names:'Much needed'},
+                {id:1,type:'Tree4',names:'Plant A Tree'},{id:2,type:'plant4',names:'Much needed'},
+                {id:1,type:'Tree5',names:'Plant A Tree'},{id:2,type:'plant5',names:'Much needed'},
+                {id:1,type:'Tree6',names:'Plant A Tree'},{id:2,type:'plant6',names:'Much needed'},
+                {id:1,type:'Tree7',names:'Plant A Tree'},{id:2,type:'plant7',names:'Much needed'},
+                {id:1,type:'Tree8',names:'Plant A Tree'},{id:2,type:'plant8',names:'Much needed'},
+                {id:1,type:'Tree9',names:'Plant A Tree'},{id:2,type:'plant9',names:'Much needed'},
+                {id:1,type:'Tree10',names:'Plant A Tree'},{id:2,type:'plant11',names:'Much needed'},
+                {id:1,type:'Tree11',names:'Plant A Tree'},{id:2,type:'plant12',names:'Much needed'},
+                {id:1,type:'Tree12',names:'Plant A Tree'},{id:2,type:'plant14',names:'Much needed'},
+                {id:1,type:'Tree13',names:'Plant A Tree'},{id:2,type:'plant15',names:'Much needed'},
+                {id:1,type:'Tree14',names:'Plant A Tree'},{id:2,type:'plant16',names:'Much needed'},
+                {id:1,type:'Tree15',names:'Plant A Tree'},{id:2,type:'plant17',names:'Much needed'},
+                {id:1,type:'Tree16',names:'Plant A Tree'},{id:2,type:'plant18',names:'Much needed'},
+                {id:1,type:'Tree17',names:'Plant A Tree'},{id:2,type:'plant19',names:'Much needed'},
+                {id:1,type:'Tree18',names:'Plant A Tree'},{id:2,type:'plant21',names:'Much needed'},
+                {id:1,type:'Tree19',names:'Plant A Tree'},{id:2,type:'plant22',names:'Much needed'},]}
                 renderItem={this.updateFlatList}
                 keyExtractor={(item, index) => item.type}
                 //horizontal
@@ -208,9 +197,28 @@ class HomeComponent extends Component {
                 inverted={-1}
                 //keyExtractor={(item, index) => item.names}
                 // key={data.names}
-                />*/}
+                />
+                <View style={{height:10}}>
+
+                </View>
+
+                 <View style={{flex:1,flexDirection:'row',height:200}}>
+                    <View style={{flex:0.2}}>
+                        <GCounterComponent 
+                        counterValue={this.state.diffCounter} 
+                        onAddPress={()=>this.setState({diffCounter:this.state.diffCounter+1})}
+                        onMinusPress={()=>this.setState({diffCounter:this.state.diffCounter-1})}
+                        />
+                    </View> 
+                    <View style={{flex:0.5,alignItems:'center',justifyContent:'center',height:100}}>
+                    <Text>
+                         {this.state.diffCounter}
+                     </Text>
+                    </View>
+                </View>
+                
             </HomeComponentWithSpinner>
-            </View>
+            </ScrollView>
         );
     }
 }

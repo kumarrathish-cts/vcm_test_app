@@ -1,5 +1,6 @@
 import React from "react";
-import { View , StyleSheet, TouchableOpacity, Text , TouchableHighlight } from 'react-native';
+import { View , StyleSheet, TouchableOpacity, Text } from 'react-native';
+import PropTypes from "prop-types";
 
 export const styles = StyleSheet.create({
     radioButtonLayout : {
@@ -24,6 +25,11 @@ export const styles = StyleSheet.create({
         width: 12,
         borderRadius: 6,
         backgroundColor: '#33A8FF'
+    },
+    questionsSection : {
+        height:15, 
+        marginLeft : '5%', 
+        marginTop: '1%'
     }
 });
 
@@ -37,13 +43,23 @@ export const GRadioButtonComponent = props => (
                 : null
             }
         </View>
-        <View style={{height:15, marginLeft : '5%', marginTop: '1%'}}>
+        <View style={styles.questionsSection}>
             <Text>
                 {props.questions}
             </Text>
         </View>
     </TouchableOpacity>
-    
     );
+
+    GRadioButtonComponent.propTypes = {
+        onPress: PropTypes.func,
+        questions: PropTypes.string,
+        selected: PropTypes.bool
+      };
+      
+      GRadioButtonComponent.defaultProps = {
+     
+      };
+
 
 export default GRadioButtonComponent;

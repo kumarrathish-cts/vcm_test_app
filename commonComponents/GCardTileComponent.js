@@ -48,7 +48,7 @@ export const GCardTileComponent = props => (
     <View style={styles.container}>
         <View style={styles.wrapper}>
             <Text>
-            {"PRO"}
+            {"PR"}
             </Text>
         </View>
         <View style={styles.tileContainer}>

@@ -1,16 +1,22 @@
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import PropTypes from "prop-types";
 
 import { convertToDeviceResolution } from '../utils/resolution';
 
 const styles = StyleSheet.create({
-
+flatListView : {
+    borderWidth:1, 
+    width : '50%',
+    justifyContent:'center',
+    alignItems:'center',
+    height:convertToDeviceResolution(30)
+}
 });
 
 
 export const GFlatListView = (props) => (
-<View style={{borderWidth:1, width : '50%',justifyContent:'center',alignItems:'center',height:convertToDeviceResolution(30)}}>
+<View style={styles.flatListView}>
 <Text>
     {props.displayData}
 </Text>

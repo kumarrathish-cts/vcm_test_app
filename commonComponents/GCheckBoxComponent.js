@@ -23,6 +23,11 @@ export const styles = StyleSheet.create({
         width: 15,
         //borderRadius: 6,
         backgroundColor: '#000'
+    },
+    optionsSection : {
+        height:30, 
+        marginLeft : '5%', 
+        marginTop: '2%'
     }
 });
 
@@ -33,14 +38,16 @@ export const GCheckBoxComponent = props => (
               props.selected ?<View style={styles.innerCircle}/> : null
             }
         </View>
-        <View style={{height:30, marginLeft : '5%', marginTop: '2%'}}>
+        <View style={styles.optionsSection}>
             <Text>{props.options}</Text>
         </View>
     </TouchableOpacity>
     );
 
     GCheckBoxComponent.propTypes = {
-        selected : PropTypes.bool.isRequired
+        selected : PropTypes.bool.isRequired,
+        onPress : PropTypes.func.isRequired,
+        options : PropTypes.string.isRequired
     }
 
     GCheckBoxComponent.defaultProps = {

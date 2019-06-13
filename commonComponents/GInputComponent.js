@@ -14,8 +14,11 @@ import { convertToDeviceResolution } from '../utils/resolution';
 export const styles =  StyleSheet.create({
 
     textInputStyle : {
-        fontSize: convertToDeviceResolution(10),
+        fontSize: 20,
         fontWeight: "bold",
+        height:convertToDeviceResolution(20),
+        alignItems : 'center',
+        justifyContent : 'center'
         //lineHeight:convertToDeviceResolution(20),
     },
 
@@ -23,10 +26,10 @@ export const styles =  StyleSheet.create({
         height:convertToDeviceResolution(20),
         backgroundColor : "#FFFFFF",
         width : '90%',
-        marginTop : '3%',
+        //marginBottom : '3%',
         borderRadius:1,
-        // justifyContent: "center",
-        alignItems:'flex-start',
+        justifyContent: "center",
+        //alignItems:'flex-start',
         borderWidth : 1,
         borderColor : "#FFFFFF"
     }
