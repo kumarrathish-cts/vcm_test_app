@@ -12,6 +12,7 @@ import GRadioButtonComponent from './GRadioButtonComponent';
 import GCardTileComponent from './GCardTileComponent';
 import GFlatListView from './GFlatListView';
 import GCounterComponent from './GCounterComponent';
+import GCommonFlatList from './GCommonFlatList'
 
 export {
     GLoadingSpinner,
@@ -27,5 +28,6 @@ export {
     GRadioButtonComponent,
     GCardTileComponent,
     GFlatListView,
-    GCounterComponent
+    GCounterComponent,
+    GCommonFlatList
 };
