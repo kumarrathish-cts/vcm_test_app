@@ -65,6 +65,8 @@ class HomeComponent extends Component {
         }
     }
 
+    
+
     checkBoxClicked = (indexPre,previousValue) => {
        var tempArray = [];
         this.state.usersChoice.map((item,index)=>{

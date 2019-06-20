@@ -77,7 +77,7 @@ export const GCardTileComponent = props => (
         </Text>
         </View>
         <Text style={styles.addMore}>
-                {"+ Add More"}
+                {"+ Add More"} {/* view more */}
             </Text>
     </View>
 );

@@ -16,11 +16,11 @@ flatListView : {
 
 
 export const GFlatListView = (props) => (
-<View style={styles.flatListView}>
-<Text>
-    {props.displayData}
-</Text>
-</View>
+    <View style={styles.flatListView}>
+        <Text>
+            {props.displayData}
+        </Text>
+    </View>
 );
 
 GFlatListView.propTypes = {

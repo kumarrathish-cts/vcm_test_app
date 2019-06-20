@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View , FlatList, Text} from 'react-native';
-import {  GCommonFlatList } from '../../commonComponents';
+import {  GCommonFlatList, GFlatListView } from '../../commonComponents';
 
 const listData = [{id:1,type:'Tree1',names:'Plant A Tree'},
 {id:2,type:'plant1',names:'Much needed'},
@@ -45,17 +45,36 @@ class listComponent extends Component {
     constructor(props){
         super(props);
     }
-   
 
+    updateFlatList = ({item}) => {
+        return(
+           <GFlatListView 
+                displayData={item.names} 
+                testData={item.id}
+            />
+        )
+    }
     
-
+    onEndReachedFunction = () => {
+        alert("End Reached")
+    }
+   
     render(){
         return (
-            <GCommonFlatList data={listData}>
-
+            <GCommonFlatList 
+                data={listData}
+                numColumns={2}
+                inverted={-1}
+                initialNumToRender={10}
+                initialScrollIndex={20}
+                //horizontal
+                updateFlatList={this.updateFlatList}
+                onEndReached={this.onEndReachedFunction}
+                onEndReachedThreshold={0.1}
+                >
             </GCommonFlatList>   
         )
-        }
+    }
 }
 
 

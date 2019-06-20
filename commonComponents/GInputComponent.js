@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 
-import { convertToDeviceResolution } from '../utils/resolution';
+import {convertToDeviceResolution  } from '../utils/resolution';
 
 /* **************************\
   Function: GInputComponent
