@@ -37,8 +37,10 @@ export const GCommonFlatListView = (props) => (
             initialNumToRender={props.initialNumToRender}
             onEndReached={props.onEndReached}
             onEndReachedThreshold={props.onEndReachedThreshold}
-            inverted={props.inverted}
+            //inverted={props.inverted}
             initialScrollIndex={props.initialScrollIndex}
+            ListFooterComponent={props.ListFooterComponent}
+            ListHeaderComponent={props.ListHeaderComponent}
             // key={data.names}
         />
     </View>
@@ -53,12 +55,16 @@ GCommonFlatListView.propTypes = {
     onEndReachedThreshold : PropTypes.number,
     initialNumToRender : PropTypes.number,
     numColumns : PropTypes.number,
-    horizontal : PropTypes.bool
+    horizontal : PropTypes.bool,
+    ListHeaderComponent : PropTypes.func,
+    ListFooterComponent : PropTypes.func
 }
 
 GCommonFlatListView.defaultProps = {
     renderItem: null,
     onEndReached : null,
+    ListHeaderComponent : null,
+    ListFooterComponent : null,
     initialScrollIndex : 0,
     inverted : 0,
     onEndReachedThreshold : 0.5,

@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import { View , FlatList, Text} from 'react-native';
 import {  GCommonFlatList, GFlatListView } from '../../commonComponents';
+import { StyleSheet } from "react-native";
 
-const listData = [{id:1,type:'Tree1',names:'Plant A Tree'},
+
+const styles =  StyleSheet.create({
+    header:{
+        height:40,
+        width:'96%',
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'green',
+        flex:1,
+        flexDirection:'row',
+        borderWidth:2
+    },
+});
+
+const listData = [
+{id:1,type:'Tree1',names:'Plant A Tree'},
 {id:2,type:'plant1',names:'Much needed'},
 {id:1,type:'Tree2',names:'Plant A Tree'},
 {id:2,type:'plant2',names:'Much needed'},
@@ -58,6 +74,22 @@ class listComponent extends Component {
     onEndReachedFunction = () => {
         alert("End Reached")
     }
+    renderHeader = () => {
+        return (
+        <View style={styles.header}>
+          <Text> This is Header </Text>
+        </View>
+      );
+
+    }
+    
+    renderFooter = () => {
+        return (
+            <View style={styles.header}>
+              <Text> This is Footer </Text>
+            </View>
+          );
+    }
    
     render(){
         return (
@@ -71,6 +103,8 @@ class listComponent extends Component {
                 updateFlatList={this.updateFlatList}
                 onEndReached={this.onEndReachedFunction}
                 onEndReachedThreshold={0.1}
+                ListHeaderComponent={this.renderHeader}
+                ListFooterComponent={this.renderFooter}
                 >
             </GCommonFlatList>   
         )
