@@ -4,17 +4,6 @@ import PropTypes from "prop-types";
 import { convertToDeviceResolution } from '../utils/resolution';
 
 const styles = StyleSheet.create({
-    flatListView : {
-        borderWidth:1, 
-        width : '48%',
-        justifyContent:'center',
-        alignItems:'center',
-        height:convertToDeviceResolution(30)
-    },
-    container:{
-        flex:1,
-        marginLeft:'2%'
-    },
     headertext:{
         fontSize:20,
         marginBottom:'2%'

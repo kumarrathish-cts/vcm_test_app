@@ -64,7 +64,7 @@ export const styles =  StyleSheet.create({
         width: width,
         height:400,
         justifyContent:'center',
-        alignItems:'flex-start',
+        alignItems:'center',
         backgroundColor:'#6B8E23'
     }
 });

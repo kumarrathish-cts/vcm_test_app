@@ -60,6 +60,7 @@ export const GInputComponent = props => (
         selectionColor={props.selectionColor}
         underlineColorAndroid={props.underlineColorAndroid}
         autoCapitalize={props.autoCapitalize}
+        contextMenuHidden={props.contextMenuHidden}
       >
       {props.inputText}
       </TextInput>
@@ -85,7 +86,8 @@ export const GInputComponent = props => (
     placeholderTextColor : PropTypes.string,
     selectionColor : PropTypes.string,
     underlineColorAndroid : PropTypes.string,
-    autoCapitalize : PropTypes.string
+    autoCapitalize : PropTypes.string,
+    contextMenuHidden : PropTypes.bool
   };
   
   GInputComponent.defaultProps = {
@@ -105,7 +107,8 @@ export const GInputComponent = props => (
     placeholderTextColor : null,
     selectionColor: null,
     underlineColorAndroid : null,
-    autoCapitalize : "none"
+    autoCapitalize : "none",
+    contextMenuHidden : false
   };
   
   export default GInputComponent;

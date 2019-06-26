@@ -27,24 +27,7 @@ const usersChoice = [
     {options : "Mobile banking",checked : true}
 ]
 
-const data = [
-    {
-      id: 1,
-      text: 'Page 1 in Development',
-    },
-    {
-      id: 2,
-      text: 'Page 2 in Development',
-    },
-    {
-      id: 3,
-      text: 'Page 3 in Development'
-    },
-    {
-      id : 4,
-      text : "For Testing"
-    }
-  ];
+
 
 
 class HomeComponent extends Component {
@@ -62,8 +45,7 @@ class HomeComponent extends Component {
                 {options : "Online Services",checked : false},
                 {options : "Mobile banking",checked : true}
             ],
-            diffCounter : 0,
-            pageNumber : 0
+            diffCounter : 0
         }
     }
 
@@ -103,24 +85,6 @@ class HomeComponent extends Component {
         })
     }
 
-    updateFlatList = ({ item}) => {
-        return(<View key={item.id} 
-            style={styles.pageScroll}>
-            <Text>{item.text}</Text>
-          </View>
-        );
-    }
-
-    onScrollEnd(e) {
-        let contentOffset = e.nativeEvent.contentOffset;
-        let viewSize = e.nativeEvent.layoutMeasurement;
-    
-        // Divide the horizontal offset by the width of the view to see which page is visible
-        let pageNum = Math.floor(contentOffset.x / viewSize.width);
-        this.setState({
-          pageNumber : pageNum
-        })
-      }
     
 
     render(){
@@ -169,6 +133,7 @@ class HomeComponent extends Component {
                     autoFocus={true}
                     editable={true}
                     maxLength={100}
+                    contextMenuHidden={false}
                     // value={"Need to clear"}
                     />
                 </View>
@@ -182,6 +147,7 @@ class HomeComponent extends Component {
                     autoFocus={true}
                     editable={true}
                     maxLength={10}
+                    contextMenuHidden={false}
                     />
             </View>
 
@@ -195,6 +161,7 @@ class HomeComponent extends Component {
                     editable={true}
                     maxLength={10}
                     keyboardType={"numeric"}
+                    contextMenuHidden={true}
                     />
             </View>
 
@@ -255,12 +222,10 @@ class HomeComponent extends Component {
                 
                 <View style={{height:10}}>
 
-                </View>
-
-                <GPagination updateFlatList={this.updateFlatList} horizontal data={data} onScroll={(e) => this.onScrollEnd(e)}  pageNumber={this.state.pageNumber} />
-
-                        
+                </View>                        
+                    
             </HomeComponentWithSpinner>
+            
             </ScrollView>
         );
     }
