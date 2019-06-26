@@ -1,6 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet,Dimensions } from "react-native";
 import { convertToDeviceResolution } from '../../utils/resolution';
 
+const {width} = Dimensions.get('window');
 
 
 export const styles =  StyleSheet.create({
@@ -59,4 +60,11 @@ export const styles =  StyleSheet.create({
         borderBottomWidth: convertToDeviceResolution(1),
         borderBottomColor: "gray"
     },
+    pageScroll:{
+        width: width,
+        height:400,
+        justifyContent:'center',
+        alignItems:'flex-start',
+        backgroundColor:'#6B8E23'
+    }
 });

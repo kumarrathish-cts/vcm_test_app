@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text,Button, ScrollView , FlatList} from 'react-native';
+import { View, Text,Button, ScrollView , FlatList, Dimensions} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import { styles } from './styles';
@@ -7,10 +7,11 @@ import { strings } from '../../locales/Lang';
 import  { GLoadingSpinnerHOC } from '../../GHOC';
 import { GButtonComponent , GInputComponent , 
          GFloatingInputComponent, GRadioButtonComponent, 
-         GCheckBoxComponent, GCardTileComponent, GFlatListView, GCounterComponent
+         GCheckBoxComponent, GCardTileComponent, GFlatListView, GCounterComponent, GPagination
 } from '../../commonComponents';
 // import config from '../../config';
 import Config from 'react-native-config';
+import { convertToDeviceResolution } from '../../utils/resolution';
 
 const HomeComponentWithSpinner = GLoadingSpinnerHOC(View);
 
@@ -25,6 +26,26 @@ const usersChoice = [
     {options : "Online Services",checked : false},
     {options : "Mobile banking",checked : true}
 ]
+
+const data = [
+    {
+      id: 1,
+      text: 'Page 1 in Development',
+    },
+    {
+      id: 2,
+      text: 'Page 2 in Development',
+    },
+    {
+      id: 3,
+      text: 'Page 3 in Development'
+    },
+    {
+      id : 4,
+      text : "For Testing"
+    }
+  ];
+
 
 class HomeComponent extends Component {
     constructor(props){
@@ -41,7 +62,8 @@ class HomeComponent extends Component {
                 {options : "Online Services",checked : false},
                 {options : "Mobile banking",checked : true}
             ],
-            diffCounter : 0
+            diffCounter : 0,
+            pageNumber : 0
         }
     }
 
@@ -81,6 +103,24 @@ class HomeComponent extends Component {
         })
     }
 
+    updateFlatList = ({ item}) => {
+        return(<View key={item.id} 
+            style={styles.pageScroll}>
+            <Text>{item.text}</Text>
+          </View>
+        );
+    }
+
+    onScrollEnd(e) {
+        let contentOffset = e.nativeEvent.contentOffset;
+        let viewSize = e.nativeEvent.layoutMeasurement;
+    
+        // Divide the horizontal offset by the width of the view to see which page is visible
+        let pageNum = Math.floor(contentOffset.x / viewSize.width);
+        this.setState({
+          pageNumber : pageNum
+        })
+      }
     
 
     render(){
@@ -145,6 +185,19 @@ class HomeComponent extends Component {
                     />
             </View>
 
+            <View style={{marginTop:'5%',marginBottom:'5%'}}>
+                <GInputComponent
+                    secureTextEntry={false}
+                    inputText={""}
+                    placeholder={"Numeric Field"}
+                    placehlderTextColor={"gray"}
+                    autoFocus={true}
+                    editable={true}
+                    maxLength={10}
+                    keyboardType={"numeric"}
+                    />
+            </View>
+
             <View>
             <Text style={styles.labeltext}>
                         {"Floating Label Component:"}
@@ -204,25 +257,9 @@ class HomeComponent extends Component {
 
                 </View>
 
-                <Text style={styles.labeltext}>
-                        {"Counter Component:"}
-                </Text>
+                <GPagination updateFlatList={this.updateFlatList} horizontal data={data} onScroll={(e) => this.onScrollEnd(e)}  pageNumber={this.state.pageNumber} />
 
-                 <View style={{flex:1,flexDirection:'row',height:200}}>
-                    <View style={{flex:0.2}}>
-                        <GCounterComponent 
-                        counterValue={this.state.diffCounter} 
-                        onAddPress={()=>this.setState({diffCounter:this.state.diffCounter+1})}
-                        onMinusPress={()=>this.setState({diffCounter:this.state.diffCounter-1})}
-                        />
-                    </View> 
-                    <View style={{flex:0.5,alignItems:'center',justifyContent:'center',height:100}}>
-                    <Text>
-                         {this.state.diffCounter}
-                     </Text>
-                    </View>
-                </View>
-                
+                        
             </HomeComponentWithSpinner>
             </ScrollView>
         );

@@ -13,6 +13,7 @@ import GCardTileComponent from './GCardTileComponent';
 import GFlatListView from './GFlatListView';
 import GCounterComponent from './GCounterComponent';
 import GCommonFlatList from './GCommonFlatList'
+import GPagination from './GPagination';
 
 export {
     GLoadingSpinner,
@@ -29,5 +30,6 @@ export {
     GCardTileComponent,
     GFlatListView,
     GCounterComponent,
-    GCommonFlatList
+    GCommonFlatList,
+    GPagination
 };
