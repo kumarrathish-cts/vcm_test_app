@@ -16,6 +16,7 @@ import Home from '../app/screens/home';
 import Detail from '../app/screens/details';
 import List from '../app/screens/listView';
 import Pagination from '../app/screens/Pagination'
+import Search from '../app/screens/search'
 
 import { GSideMenu } from './commonComponents';
 // import { convertToDeviceResolution } from './utils/resolution'
@@ -83,6 +84,12 @@ export default class Routes extends Component {
                         key="pagination"
                         title="Pagination List"
                         component={Pagination}
+                        />
+
+                        <Scene
+                        key="search"
+                        title="Search List"
+                        component={Search}
                         />
                     </Stack>
             </Router>
