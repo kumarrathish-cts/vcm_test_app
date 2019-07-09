@@ -14,6 +14,8 @@ import GFlatListView from './GFlatListView';
 import GCounterComponent from './GCounterComponent';
 import GCommonFlatList from './GCommonFlatList'
 import GPagination from './GPagination';
+import GSearchComponent from './GSearchComponent';
+import openCamera from './GCustomCamera';
 
 export {
     GLoadingSpinner,
@@ -31,5 +33,7 @@ export {
     GFlatListView,
     GCounterComponent,
     GCommonFlatList,
-    GPagination
+    GPagination,
+    GSearchComponent,
+    openCamera
 };

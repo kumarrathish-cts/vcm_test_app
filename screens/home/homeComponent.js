@@ -7,7 +7,7 @@ import { strings } from '../../locales/Lang';
 import  { GLoadingSpinnerHOC } from '../../GHOC';
 import { GButtonComponent , GInputComponent , 
          GFloatingInputComponent, GRadioButtonComponent, 
-         GCheckBoxComponent, GCardTileComponent, GFlatListView, GCounterComponent, GPagination
+         GCheckBoxComponent, GCardTileComponent, GFlatListView, GCounterComponent, GPagination,openCamera
 } from '../../commonComponents';
 // import config from '../../config';
 import Config from 'react-native-config';
@@ -85,6 +85,7 @@ class HomeComponent extends Component {
         })
     }
 
+  
     
 
     render(){
@@ -117,6 +118,20 @@ class HomeComponent extends Component {
                 textStyle={styles.buttonTextStyle}
                 buttonText= {"Flat List"}
                 onPress={()=>Actions.List()}
+                />
+
+                <GButtonComponent 
+                buttonStyle={styles.buttonStyle} 
+                textStyle={styles.buttonTextStyle}
+                buttonText= {"Search"}
+                onPress={()=>Actions.search()}
+                />
+
+                <GButtonComponent 
+                buttonStyle={styles.buttonStyle} 
+                textStyle={styles.buttonTextStyle}
+                buttonText= {"Camera"}
+                onPress={()=>openCamera()}
                 />
 
                 

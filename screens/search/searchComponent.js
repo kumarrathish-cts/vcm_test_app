@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { TextInput, View , Text, FlatList} from 'react-native';
-
+import { TextInput, View , Text, StyleSheet} from 'react-native';
+import { GSearchComponent } from '../../commonComponents/GSearchComponent';
+import { convertToDeviceResolution } from '../../utils/resolution';
 
 var promiseCall = new Promise(function(resolve, reject) {
     setTimeout(function() {
@@ -18,6 +19,23 @@ var promiseCall = new Promise(function(resolve, reject) {
 let data = [{id: 1,text: 'One'},{id: 2,text: 'Two'},{id: 3,text: 'Three'},{id : 4,text : "Four"}];
 let newData = [{id: 1,text: 'One'},{id: 2,text: 'Two'},{id: 3,text: 'Three'},{id : 4,text : "Four"},{id : 5,text : "Five"},{id : 6,text : "Six"},{id : 7,text : "Seven"},{id : 8,text : "Eight"},{id : 9,text : "Nine"},{id : 10,text : "Ten"}];
 
+const styles = StyleSheet.create({
+  container : {
+    height:convertToDeviceResolution(50),
+    width:'100%'
+  },
+  listArea :{
+    width: '100%',
+    height:convertToDeviceResolution(30),
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#6B8E23'
+  },
+  textArea:{
+    marginTop:'10%',
+    borderBottomWidth :1
+  }
+});
 
  
 class searchComponent extends Component {
@@ -80,15 +98,10 @@ class searchComponent extends Component {
 
     keyExtractor = item => item.id.toString();
 
-    renderItem({ item}) {
+    updateFlatList({ item}) {
         return (
           <View key={item.id} 
-            style={{
-            width: '100%',
-            height:60,
-            justifyContent:'center',
-            alignItems:'center',
-            backgroundColor:'#6B8E23'}}>
+            style={styles.listArea}>
             <Text>{item.text}</Text>
           </View>
         )
@@ -96,32 +109,15 @@ class searchComponent extends Component {
 
     render(){
         return(
-            <View style={{height:50,width:'100%'}}>
-                <TextInput style={{borderBottomWidth :1}}
-                onChangeText={(text) => this.onChangeMethod(text)}
-                value={this.state.promiseVal}
-                onBlur={this.promiseCalled}>
-                </TextInput>
-                <TextInput></TextInput>
-
-            
-              {this.state.noData ? <View>
-                <Text>
-                  {"No Data Available"}
-                </Text>
-                </View> :
-                <View style={{
-                  height:200}}>
-                <FlatList 
-                data={this.state.flatListData}
-                //pagingEnabled
-                keyExtractor={this.keyExtractor}
-                renderItem={this.renderItem}
-                onScroll={(e) => this.onScrollEnd(e)} 
-                extraData={this.state}
-                />
-            </View>}
-            </View>
+          <View style={styles.container}>
+          <TextInput style={styles.textArea}
+          onChangeText={(text) => this.onChangeMethod(text)}
+          value={this.state.promiseVal}
+          onBlur={this.promiseCalled}>
+          </TextInput>
+          <TextInput></TextInput>
+            <GSearchComponent data={this.state.flatListData} onScroll={(e) => this.onScrollEnd(e)} updateFlatList={this.updateFlatList} noData={this.state.noData}/>
+          </View>
         )
     }
 }
