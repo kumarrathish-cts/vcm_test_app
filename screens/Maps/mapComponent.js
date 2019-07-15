@@ -42,6 +42,25 @@ class mapComponent extends Component {
 
       }
 
+      // navigator.geolocation.getCurrentPosition(
+    //   (position) => {
+
+    //     this.setState({
+    //       userLocation: {
+    //         latitude: position.coords.latitude,
+    //         longitude: position.coords.longitude,
+    //         latitudeDelta: LATITUDE_DELTA,
+    //         longitudeDelta: LONGITUDE_DELTA
+    //       },
+
+    //       // error: null,
+    //     isLocationCaptured: true
+    //     });
+    //   },
+    //
+    //   { enableHighAccuracy: false, timeout: 10 },
+    // );
+
     render() {
       return(
         <MapView 
