@@ -15,8 +15,8 @@ import Login from '../app/screens/login';
 import Home from '../app/screens/home';
 import Detail from '../app/screens/details';
 import List from '../app/screens/listView';
-import Pagination from '../app/screens/Pagination'
-import Search from '../app/screens/search'
+import Pdf from '../app/screens/pdfGen';
+import Chart from '../app/screens/charts';
 
 import { GSideMenu } from './commonComponents';
 // import { convertToDeviceResolution } from './utils/resolution'
@@ -80,17 +80,19 @@ export default class Routes extends Component {
                         title="Flat List"
                         component={List}
                         />
-                        <Scene
-                        key="pagination"
-                        title="Pagination List"
-                        component={Pagination}
-                        />
 
                         <Scene
-                        key="search"
-                        title="Search List"
-                        component={Search}
+                            key='Pdf'
+                            title="PDF"
+                            component={Pdf}
+                        />  
+                        
+                        <Scene
+                            key='Chart'
+                            title="Chart"
+                            component={Chart}
                         />
+                        
                     </Stack>
             </Router>
         );
